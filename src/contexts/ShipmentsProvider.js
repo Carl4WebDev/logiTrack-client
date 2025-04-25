@@ -12,7 +12,9 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
   useEffect(() => {
     const fetchShipments = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/shipments"); // Your API endpoint
+        const response = await fetch(
+          "https://logitrack-server-1.onrender.com/api/shipments"
+        ); // Your API endpoint
         const data = await response.json();
         const processed = data.map((shipment) => ({
           ...shipment,
@@ -48,7 +50,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/shipments/${editedData.id}`,
+        `https://logitrack-server-1.onrender.com/api/shipments/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -90,7 +92,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (shipmentId) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/shipments/${shipmentId}`,
+        `https://logitrack-server-1.onrender.com/api/shipments/${shipmentId}`,
         {
           method: "DELETE",
         }
@@ -144,10 +146,13 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
     );
 
     try {
-      const response = await fetch("http://localhost:4000/api/shipments", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://logitrack-server-1.onrender.com/api/shipments",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         setShipmentsData((prev) => [...prev, newShipments]);
@@ -185,7 +190,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
 
       // API call
       const response = await fetch(
-        `http://localhost:4000/api/shipments/${shipmentId}/excel`,
+        `https://logitrack-server-1.onrender.com/api/shipments/${shipmentId}/excel`,
         {
           method: "PUT",
           body: formData,

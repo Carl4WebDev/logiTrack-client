@@ -18,7 +18,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchShipments = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/users"); // Your API endpoint
+        const response = await fetch(
+          "https://logitrack-server-1.onrender.com/api/users"
+        ); // Your API endpoint
         const data = await response.json();
         setUsersData(data);
       } catch (err) {
@@ -41,11 +43,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("http://localhost:4000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://logitrack-server-1.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -64,11 +69,14 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (newUser) => {
     try {
-      const response = await fetch("http://localhost:4000/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newUser),
-      });
+      const response = await fetch(
+        "https://logitrack-server-1.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
+        }
+      );
 
       const data = await response.json();
 
@@ -94,7 +102,7 @@ export const AuthProvider = ({ children }) => {
   const updateUserRole = async (userId, newRole) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/users/secrets/${userId}/role`,
+        `https://logitrack-server-1.onrender.com/api/users/secrets/${userId}/role`,
         {
           method: "PATCH",
           headers: {
@@ -121,7 +129,7 @@ export const AuthProvider = ({ children }) => {
   const deleteUser = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/users/secrets/${userId}`,
+        `https://logitrack-server-1.onrender.com/api/users/secrets/${userId}`,
         {
           method: "DELETE",
           // Removed Authorization header

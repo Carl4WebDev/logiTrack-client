@@ -28,7 +28,9 @@ const DriverPage = () => {
   useEffect(() => {
     const fetchDrivers = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/drivers");
+        const response = await fetch(
+          "https://logitrack-server-1.onrender.com/api/drivers"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch drivers");
         }
@@ -54,9 +56,12 @@ const DriverPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/drivers/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://logitrack-server-1.onrender.com/api/drivers/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) throw new Error("Failed to delete driver");
       setData(data.filter((driver) => driver.id !== id)); // Update state
       setIsDeleteModalOpen(false);
@@ -85,7 +90,7 @@ const DriverPage = () => {
   const handleSave = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/drivers/${selectedDriver.id}`,
+        `https://logitrack-server-1.onrender.com/api/drivers/${selectedDriver.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -133,11 +138,14 @@ const DriverPage = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/drivers", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newDriver),
-      });
+      const response = await fetch(
+        "https://logitrack-server-1.onrender.com/api/drivers",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newDriver),
+        }
+      );
 
       if (!response.ok) throw new Error("Failed to add driver");
 
@@ -170,7 +178,7 @@ const DriverPage = () => {
     const fetchVehicles = async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/vehicles-drivers"
+          "https://logitrack-server-1.onrender.com/api/vehicles-drivers"
         );
         if (!response.ok) throw new Error("Failed to fetch vehicles");
         const data = await response.json();

@@ -12,7 +12,9 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
   useEffect(() => {
     const fetchSummaries = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/summary");
+        const response = await fetch(
+          "https://logitrack-server-1.onrender.com/api/summary"
+        );
         const data = await response.json();
         const processed = data.map((summary) => ({
           ...summary,
@@ -50,7 +52,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/summary/${editedData.id}`,
+        `https://logitrack-server-1.onrender.com/api/summary/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -91,7 +93,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (summaryId) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/summary/${summaryId}`,
+        `https://logitrack-server-1.onrender.com/api/summary/${summaryId}`,
         {
           method: "DELETE",
         }
@@ -138,10 +140,13 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
     formData.append("file_data", newSummary.file_data, newSummary.file_name);
 
     try {
-      const response = await fetch("http://localhost:4000/api/summary", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://logitrack-server-1.onrender.com/api/summary",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         setSummaryData((prev) => [...prev, newSummary]);
@@ -176,7 +181,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
       );
 
       const response = await fetch(
-        `http://localhost:4000/api/summary/${summaryId}/excel`,
+        `https://logitrack-server-1.onrender.com/api/summary/${summaryId}/excel`,
         {
           method: "PUT",
           body: formData,

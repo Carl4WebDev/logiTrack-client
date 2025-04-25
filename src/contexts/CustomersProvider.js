@@ -12,7 +12,9 @@ export const CustomersProvider = ({ children, initialData = [] }) => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/customers");
+        const response = await fetch(
+          "https://logitrack-server-1.onrender.com/api/customers"
+        );
         const data = await response.json();
         const processed = data.map((customer) => ({
           ...customer,
@@ -50,7 +52,7 @@ export const CustomersProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/customers/${editedData.id}`,
+        `https://logitrack-server-1.onrender.com/api/customers/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -92,7 +94,7 @@ export const CustomersProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (customerId) => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/customers/${customerId}`,
+        `https://logitrack-server-1.onrender.com/api/customers/${customerId}`,
         {
           method: "DELETE",
         }
@@ -143,10 +145,13 @@ export const CustomersProvider = ({ children, initialData = [] }) => {
     formData.append("file_data", newCustomer.file_data, newCustomer.file_name);
 
     try {
-      const response = await fetch("http://localhost:4000/api/customers", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://logitrack-server-1.onrender.com/api/customers",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         setCustomersData((prev) => [...prev, newCustomer]);
@@ -184,7 +189,7 @@ export const CustomersProvider = ({ children, initialData = [] }) => {
 
       // API call
       const response = await fetch(
-        `http://localhost:4000/api/customers/${customerId}/excel`,
+        `https://logitrack-server-1.onrender.com/api/customers/${customerId}/excel`,
         {
           method: "PUT",
           body: formData,
