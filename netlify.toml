@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"  # Your frontend build command
-  publish = "dist"           # Your built frontend files directory
+  command = "CI= npm run build"  # Add CI= to prevent warnings from failing build
+  publish = "build"  # Or "dist" depending on your framework
 
 [build.environment]
-  NODE_VERSION = "22.14.0"   # Match your Node version
+  NODE_VERSION = "18.12.1"  # Stable LTS version
