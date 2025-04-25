@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"  # Your frontend build command
+  publish = "dist"           # Your built frontend files directory
+
+[build.environment]
+  NODE_VERSION = "22.14.0"   # Match your Node version
