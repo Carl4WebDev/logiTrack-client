@@ -13,7 +13,7 @@ export const DeliveryForwardProvider = ({ children, initialData = [] }) => {
     const fetchDeliveryForwards = async () => {
       try {
         const response = await fetch(
-          "https://logitrack-server-1.onrender.com/api/delivery-forwards"
+          "https://logitrack-serverz.onrender.com/api/delivery-forwards"
         );
         const data = await response.json();
         const processed = data.map((deliveryForward) => ({
@@ -53,7 +53,7 @@ export const DeliveryForwardProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/delivery-forwards/${editedData.id}`,
+        `https://logitrack-serverz.onrender.com/api/delivery-forwards/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -98,7 +98,7 @@ export const DeliveryForwardProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (deliveryForwardId) => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/delivery-forwards/${deliveryForwardId}`,
+        `https://logitrack-serverz.onrender.com/api/delivery-forwards/${deliveryForwardId}`,
         {
           method: "DELETE",
         }
@@ -154,7 +154,7 @@ export const DeliveryForwardProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        "https://logitrack-server-1.onrender.com/api/delivery-forwards",
+        "https://logitrack-serverz.onrender.com/api/delivery-forwards",
         {
           method: "POST",
           body: formData,
@@ -198,7 +198,7 @@ export const DeliveryForwardProvider = ({ children, initialData = [] }) => {
 
       // API call
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/delivery-forwards/${deliveryForwardId}/excel`,
+        `https://logitrack-serverz.onrender.com/api/delivery-forwards/${deliveryForwardId}/excel`,
         {
           method: "PUT",
           body: formData,

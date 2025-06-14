@@ -79,7 +79,7 @@ const AuthPage = () => {
   return (
     <>
       <div className="fixed w-full h-full -inset-1z-0 inset-0">
-        <img src={bg} className="w-full h-full object-cover" />
+        <img src={bg} className="w-full h-full object-cover opacity-65" />
       </div>
       <div className="fixed w-full h-full z-50 inset-0 flex justify-center items-center bg-gradient-to-r p-6">
         <div className="bg-white p-5 rounded-lg shadow-lg w-full max-w-md">

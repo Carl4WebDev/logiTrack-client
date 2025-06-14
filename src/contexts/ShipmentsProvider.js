@@ -13,7 +13,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
     const fetchShipments = async () => {
       try {
         const response = await fetch(
-          "https://logitrack-server-1.onrender.com/api/shipments"
+          "https://logitrack-serverz.onrender.com/api/shipments"
         ); // Your API endpoint
         const data = await response.json();
         const processed = data.map((shipment) => ({
@@ -50,7 +50,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/shipments/${editedData.id}`,
+        `https://logitrack-serverz.onrender.com/api/shipments/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -92,7 +92,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (shipmentId) => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/shipments/${shipmentId}`,
+        `https://logitrack-serverz.onrender.com/api/shipments/${shipmentId}`,
         {
           method: "DELETE",
         }
@@ -147,7 +147,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        "https://logitrack-server-1.onrender.com/api/shipments",
+        "https://logitrack-serverz.onrender.com/api/shipments",
         {
           method: "POST",
           body: formData,
@@ -190,7 +190,7 @@ export const ShipmentsProvider = ({ children, initialData = [] }) => {
 
       // API call
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/shipments/${shipmentId}/excel`,
+        `https://logitrack-serverz.onrender.com/api/shipments/${shipmentId}/excel`,
         {
           method: "PUT",
           body: formData,

@@ -68,7 +68,7 @@ export default function Navbar() {
             className="rounded-full"
             alt="LogiTrack Logo"
           />
-          <h1 className="ml-2 text-2xl">LogiTrack</h1>
+          <h1 className="ml-2 text-2xl">Logistics System</h1>
         </NavLink>
       </div>
 

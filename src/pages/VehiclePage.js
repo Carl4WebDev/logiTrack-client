@@ -30,9 +30,7 @@ const VehiclePage = () => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const response = await fetch(
-          "https://logitrack-server-1.onrender.com/api/vehicles"
-        );
+        const response = await fetch("http://localhost:4000/api/vehicles");
         if (!response.ok) throw new Error("Failed to fetch vehicles");
         const data = await response.json();
         setVehicles(data);
@@ -77,16 +75,13 @@ const VehiclePage = () => {
     }
 
     try {
-      const response = await fetch(
-        "https://logitrack-server-1.onrender.com/api/vehicles",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newVehicle),
-        }
-      );
+      const response = await fetch("http://localhost:4000/api/vehicles", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newVehicle),
+      });
 
       if (!response.ok) throw new Error("Failed to add vehicle");
 
@@ -111,7 +106,7 @@ const VehiclePage = () => {
   const handleUpdateVehicle = async () => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/vehicles/${selectedVehicle.id}`,
+        `http://localhost:4000/api/vehicles/${selectedVehicle.id}`,
         {
           method: "PUT",
           headers: {
@@ -147,7 +142,7 @@ const VehiclePage = () => {
   const handleDeleteVehicle = async () => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/vehicles/${selectedVehicle.id}`,
+        `http://localhost:4000/api/vehicles/${selectedVehicle.id}`,
         {
           method: "DELETE",
         }

@@ -13,7 +13,7 @@ export const ItemActivityLogProvider = ({ children, initialData = [] }) => {
     const fetchItemActivityLogs = async () => {
       try {
         const response = await fetch(
-          "https://logitrack-server-1.onrender.com/api/item-activity-logs"
+          "https://logitrack-serverz.onrender.com/api/item-activity-logs"
         ); // Your API endpoint
         const data = await response.json();
         const processed = data.map((log) => ({
@@ -50,7 +50,7 @@ export const ItemActivityLogProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/item-activity-logs/${editedData.id}`,
+        `https://logitrack-serverz.onrender.com/api/item-activity-logs/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -92,7 +92,7 @@ export const ItemActivityLogProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (logId) => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/item-activity-logs/${logId}`,
+        `https://logitrack-serverz.onrender.com/api/item-activity-logs/${logId}`,
         {
           method: "DELETE",
         }
@@ -142,7 +142,7 @@ export const ItemActivityLogProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        "https://logitrack-server-1.onrender.com/api/item-activity-logs",
+        "https://logitrack-serverz.onrender.com/api/item-activity-logs",
         {
           method: "POST",
           body: formData,
@@ -186,7 +186,7 @@ export const ItemActivityLogProvider = ({ children, initialData = [] }) => {
 
       // API call
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/item-activity-logs/${logId}/excel`,
+        `https://logitrack-serverz.onrender.com/api/item-activity-logs/${logId}/excel`,
         {
           method: "PUT",
           body: formData,

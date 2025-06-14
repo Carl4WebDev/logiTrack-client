@@ -13,7 +13,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
     const fetchSummaries = async () => {
       try {
         const response = await fetch(
-          "https://logitrack-server-1.onrender.com/api/summary"
+          "https://logitrack-serverz.onrender.com/api/summary"
         );
         const data = await response.json();
         const processed = data.map((summary) => ({
@@ -52,7 +52,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/summary/${editedData.id}`,
+        `https://logitrack-serverz.onrender.com/api/summary/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -93,7 +93,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (summaryId) => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/summary/${summaryId}`,
+        `https://logitrack-serverz.onrender.com/api/summary/${summaryId}`,
         {
           method: "DELETE",
         }
@@ -141,7 +141,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        "https://logitrack-server-1.onrender.com/api/summary",
+        "https://logitrack-serverz.onrender.com/api/summary",
         {
           method: "POST",
           body: formData,
@@ -181,7 +181,7 @@ export const SummaryProvider = ({ children, initialData = [] }) => {
       );
 
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/summary/${summaryId}/excel`,
+        `https://logitrack-serverz.onrender.com/api/summary/${summaryId}/excel`,
         {
           method: "PUT",
           body: formData,

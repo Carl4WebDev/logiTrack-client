@@ -13,7 +13,7 @@ export const ItemSnapshotProvider = ({ children, initialData = [] }) => {
     const fetchItemSnapshots = async () => {
       try {
         const response = await fetch(
-          "https://logitrack-server-1.onrender.com/api/item-snapshots"
+          "https://logitrack-serverz.onrender.com/api/item-snapshots"
         );
         const data = await response.json();
         const processed = data.map((itemSnapshot) => ({
@@ -47,7 +47,7 @@ export const ItemSnapshotProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/item-snapshots/${editedData.id}`,
+        `https://logitrack-serverz.onrender.com/api/item-snapshots/${editedData.id}`,
         {
           method: "PUT",
           body: formData,
@@ -90,7 +90,7 @@ export const ItemSnapshotProvider = ({ children, initialData = [] }) => {
   const handleDelete = async (itemSnapshotId) => {
     try {
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/item-snapshots/${itemSnapshotId}`,
+        `https://logitrack-serverz.onrender.com/api/item-snapshots/${itemSnapshotId}`,
         {
           method: "DELETE",
         }
@@ -142,7 +142,7 @@ export const ItemSnapshotProvider = ({ children, initialData = [] }) => {
 
     try {
       const response = await fetch(
-        "https://logitrack-server-1.onrender.com/api/item-snapshots",
+        "https://logitrack-serverz.onrender.com/api/item-snapshots",
         {
           method: "POST",
           body: formData,
@@ -183,7 +183,7 @@ export const ItemSnapshotProvider = ({ children, initialData = [] }) => {
       );
 
       const response = await fetch(
-        `https://logitrack-server-1.onrender.com/api/item-snapshots/${itemSnapshotId}/excel`,
+        `https://logitrack-serverz.onrender.com/api/item-snapshots/${itemSnapshotId}/excel`,
         {
           method: "PUT",
           body: formData,
