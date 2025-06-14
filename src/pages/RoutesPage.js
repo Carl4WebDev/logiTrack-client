@@ -29,7 +29,9 @@ const RoutesPage = () => {
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/routes");
+        const response = await fetch(
+          "https://logitrack-serverz.onrender.com/api/routes"
+        );
         if (!response.ok) throw new Error("Failed to fetch routes");
         const data = await response.json();
         setRoutes(data);
@@ -73,17 +75,20 @@ const RoutesPage = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/routes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: newRoute.id,
-          address: newRoute.address,
-          dropPoint: newRoute.dropPoint,
-        }),
-      });
+      const response = await fetch(
+        "https://logitrack-serverz.onrender.com/api/routes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: newRoute.id,
+            address: newRoute.address,
+            dropPoint: newRoute.dropPoint,
+          }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -111,7 +116,7 @@ const RoutesPage = () => {
   const handleUpdateRoute = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/routes/${selectedRoute.id}`,
+        `https://logitrack-serverz.onrender.com/api/routes/${selectedRoute.id}`,
         {
           method: "PUT",
           headers: {
@@ -153,7 +158,7 @@ const RoutesPage = () => {
   const handleDeleteRoute = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/routes/${selectedRoute.id}`,
+        `https://logitrack-serverz.onrender.com/api/routes/${selectedRoute.id}`,
         {
           method: "DELETE",
         }
